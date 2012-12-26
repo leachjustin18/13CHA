@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset=utf-8>
+         <link rel=stylesheet href="media/main.css">
+      	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8">
+       $(function() {
+ var count = 0,
+ 	 count1 = 1;
+ var $sel = {
+ 	radio: $(':radio'),
+ 	nextBtn: $('.next'),
+ 	allAnswers: $('.answers'),
+ 	q: '.question'
+ }
+ //Individual Answers and remedations for each quesstion 
+ var ans = [{
+ 	a: [0],
+ 	corrAnswer: $('.cA'),
+ 	inCorrAnswer: $('.iA')
+ }, {
+ 	a: [1],
+ 	corrAnswer: $('.cB'),
+ 	inCorrAnswer: $('.iB')
+ }, {
+ 	a: [1],
+ 	corrAnswer: $('.cC'),
+ 	inCorrAnswer: $('.iC')
+ }, {
+ 	a: [1],
+ 	corrAnswer: $('.cD'),
+ 	inCorrAnswer: $('.iD')
+ }]
+ $sel.radio.click(function() {
+ 	//A counter to show the next question, hide the previous, and to test for the last question to hide the next button 
+ 	count++;
+ 	count1++;
+ 	var num = parseInt($(this).attr('number'));
+ 	//Select the specific question you are answered and grab the index of it
+ 	var radioIdx = $('input[name="q' + [num] + '"]').index($(this));
+ 	//Loop through each question
+ 	for(var aIndex = 0; aIndex < 1; aIndex++) {
+ 		if(radioIdx === ans[num].a[aIndex]) {
+ 			$sel.radio.attr('disabled', true);
+ 			ans[num].corrAnswer.removeClass('hidden');
+ 			//Ensure that the next button will not show after the last quesiton is answered 
+ 			if(count !== 4) {
+ 				$sel.nextBtn.show();
+ 			}
+ 		} else {
+ 			$sel.radio.attr('disabled', true);
+ 			ans[num].inCorrAnswer.removeClass('hidden');
+ 			if(count !== 4) {
+ 				$sel.nextBtn.show();
+ 			}
+ 		}
+ 	}
+ });
+ //Next button function 
+ $sel.nextBtn.click(function() {
+ 	$sel.allAnswers.addClass('hidden');
+ 	$sel.radio.attr('disabled', false);
+ 	$($sel.q + count).hide();
+ 	$sel.nextBtn.hide();
+ 	$($sel.q + count1).show();
+ });
+ });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+        <div id="textSection"> 
+        <div class="question1">
+<div class="qTitle"><span class="qActive">Question 1</span> of 4</div> 
+<div class="qText">The ductus venosus connects the umbilical vein to the inferior vena cava.<div class="instructions"> True or False?</div></div>
+<div class="radiolabel">
+    <input type="radio" id="1" name="q0" number="0" class="rbA">True
+    <input type="radio" id="1" name="q0" number="0" class="rbB">False
+    </div>
+</div>
+ <div class="question2 hidden">
+<div class="qTitle"><span class="qActive">Question 2</span> of 4</div> 
+<div class="qText">The foramen ovale shunts blood away from the placenta.<div class="instructions"> True or False?</div></div>
+<div class="radiolabel">
+    <input type="radio" id="2" name="q1" number="1" class="rbA">True
+    <input type="radio" id="2" name="q1" number="1" class="rbB">False
+    </div>
+</div>
+ <div class="question3 hidden">
+<div class="qTitle"><span class="qActive">Question 3</span> of 4</div> 
+<div class="qText">False The ductus arteriosus shunts blood into the aorta instead of the pulmonary veins.<div class="instructions"> True or False?</div></div>
+<div class="radiolabel">
+    <input type="radio" id="3" name="q2" number="2" class="rbA">True
+    <input type="radio" id="3" name="q2" number="2" class="rbB">False
+    </div>
+</div>
+ <div class="question4 hidden">
+<div class="qTitle"><span class="qActive">Question 4</span> of 4</div> 
+<div class="qText">Fetal lungs are responsible for oxygen and carbon dioxide exchange.<div class="instructions"> True or False?</div></div>
+<div class="radiolabel">
+    <input type="radio" id="4" name="q3" number="3" class="rbA">True
+    <input type="radio" id="4" name="q3" number="3" class="rbB">False
+    </div>
+</div>
+        <div class="cA correct hidden answers">
+  			<div class="sectionTitle">Correct!</div>
+		  <div class="space">Fetal blood flowing into the inferior vena cava bypasses the liver.</div>
+  		</div>		
+      <div class="iA incorrect hidden answers"> 
+  			<div class="sectionTitle">Incorrect.</div>
+			<div class="space">Refer to the section &quot;Blood Flow&quot; for additional review.</div>
+  		</div>
+       <div class="cB correct hidden answers">
+        <div class="sectionTitle">Correct!</div>
+      <div class="space">The foramen ovale shunts blood away from the fetal lungs.</div>
+      </div>
+      <div class="iB incorrect hidden answers"> 
+        <div class="sectionTitle">Incorrect.</div>
+      <div class="space"> Refer to the section &quot;Foramen Ovale&quot; for additional review.</div>
+      </div>
+        <div class="cC correct hidden answers">
+        <div class="sectionTitle">Correct!</div>
+      <div class="space">The ductus arteriosus shunts blood away from the pulmonary arteries.</div>
+      </div>
+      <div class="iC incorrect hidden answers"> 
+        <div class="sectionTitle">Incorrect.</div>
+        <div class="space">Refer to the section &quot;Ductus Arteriosus&quot; for additional review.</div>
+      </div>
+       <div class="cD correct hidden answers">
+        <div class="sectionTitle">Correct!</div>
+      <div class="space">The placenta is responsible for gas exchange.</div>
+      </div>
+      <div class="iD incorrect hidden answers"> 
+        <div class="sectionTitle">Incorrect.</div>
+      <div class="space">Refer to the section &quot;The Placenta&quot; for additional review</div>
+      </div>
+      <div class="nextBtn"> <input type="button" class="next hidden" value="Next Question"></div>
+        </div>
+    </body>
+</html>

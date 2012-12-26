@@ -1,0 +1,37 @@
+ body {
+font-family:Arial, Helvetica, sans-serif;
+font-size: 13px;
+}
+#wrapper {width: 550px;}
+.space{margin-bottom:10px;}
+.instructions {font-style: italic;}
+.hidden {display: none;}
+.sectionTitle {font-weight: bold;}
+.radioBtn {padding-bottom: 10px;}
+.qActive {color:#000;}
+.radiolabel {margin-left: 20px;}
+.nextBtn {margin-top:70px;}
+.correct {
+	background:#CFC;
+	border:1px solid #090;
+	margin: 10px 0px 10px 0px;
+}
+.incorrect {
+	background:#FFD2CC;
+	border: 1px solid #991200;
+	margin: 10px 0px 10px 0px;
+}
+.answers {
+	float:left;
+	padding: 2px;
+}
+.qTitle {
+  font-size: 21px;
+  color: #666;
+  font-weight: bold;
+  padding-top:10px;
+}
+.qText {
+	width: 550px;
+	float:left;
+}
