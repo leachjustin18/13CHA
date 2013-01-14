@@ -40,7 +40,7 @@
  	//Select the specific question you are answered and grab the index of it
  	var radioIdx = $('input[name="q' + [num] + '"]').index($(this));
  	//Loop through each question
- 	for(var aIndex = 0; aIndex < 1; aIndex++) {
+ 	for(var aIndex = 0; aIndex < ans[num].a.length; aIndex++) {
  		if(radioIdx === ans[num].a[aIndex]) {
  			$sel.radio.attr('disabled', true);
  			ans[num].corrAnswer.removeClass('hidden');
